@@ -17,20 +17,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battery Level" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GzS-Hr-y6P">
-                                <rect key="frame" x="236" y="263" width="127.5" height="26.5"/>
+                                <rect key="frame" x="236" y="252" width="127.5" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7W-KX-5hh">
-                                <rect key="frame" x="273" y="298" width="54.5" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <rect key="frame" x="272" y="287" width="57" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Charging)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56Q-Jd-ajz">
-                                <rect key="frame" x="252.5" y="332" width="95.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="247.5" y="321" width="104.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -43,7 +43,13 @@
                             <constraint firstItem="GzS-Hr-y6P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UG6-6y-CQ0"/>
                             <constraint firstItem="56Q-Jd-ajz" firstAttribute="top" secondItem="o7W-KX-5hh" secondAttribute="bottom" constant="8" id="nXx-Cb-mhS"/>
                             <constraint firstItem="o7W-KX-5hh" firstAttribute="centerX" secondItem="GzS-Hr-y6P" secondAttribute="centerX" id="oJH-DH-fOV"/>
+                            <constraint firstItem="o7W-KX-5hh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rsg-3v-g4G"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Hey-Mg-kv2"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="batteryLevelLabel" destination="o7W-KX-5hh" id="JhD-zw-hty"/>

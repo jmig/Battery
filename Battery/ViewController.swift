@@ -13,11 +13,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var batteryLevelLabel: UILabel?
     @IBOutlet weak var batteryStateLabel: UILabel?
 
+    deinit {
+        unregisterFromBatteryNotifications()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        updateBatteryLevel()
-        updateBatteryState()
+
+        registerForBatteryNotifications()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +29,27 @@ class ViewController: UIViewController {
     }
 
     //MARK: Private
+
+    func registerForBatteryNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "batteryLevelDidChange:", name:UIDeviceBatteryLevelDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "batteryStateDidChange:", name:UIDeviceBatteryStateDidChangeNotification, object: nil)
+        UIDevice.currentDevice().batteryMonitoringEnabled = true
+    }
+
+    func batteryLevelDidChange(notification: NSNotification) {
+        updateBatteryLevel()
+    }
+
+    func batteryStateDidChange(notification: NSNotification) {
+        updateBatteryState()
+        updateBatteryLevel()
+    }
+
+    func unregisterFromBatteryNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIDeviceBatteryLevelDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIDeviceBatteryStateDidChangeNotification, object: nil)
+        UIDevice.currentDevice().batteryMonitoringEnabled = false
+    }
 
     func numberPercentFormatter() -> NSNumberFormatter {
         struct Static {
