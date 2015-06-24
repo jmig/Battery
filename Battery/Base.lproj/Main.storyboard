@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Battery" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battery Level" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GzS-Hr-y6P">
+                                <rect key="frame" x="236" y="263" width="127.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7W-KX-5hh">
+                                <rect key="frame" x="273" y="298" width="54.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Charging)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56Q-Jd-ajz">
+                                <rect key="frame" x="252.5" y="332" width="95.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.23529411764705882" green="0.73333333333333328" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="o7W-KX-5hh" firstAttribute="top" secondItem="GzS-Hr-y6P" secondAttribute="bottom" constant="8" id="DXv-bM-4ZW"/>
+                            <constraint firstItem="56Q-Jd-ajz" firstAttribute="centerX" secondItem="o7W-KX-5hh" secondAttribute="centerX" id="Dlc-cK-XID"/>
+                            <constraint firstItem="GzS-Hr-y6P" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-24" id="Hey-Mg-kv2"/>
+                            <constraint firstItem="GzS-Hr-y6P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UG6-6y-CQ0"/>
+                            <constraint firstItem="56Q-Jd-ajz" firstAttribute="top" secondItem="o7W-KX-5hh" secondAttribute="bottom" constant="8" id="nXx-Cb-mhS"/>
+                            <constraint firstItem="o7W-KX-5hh" firstAttribute="centerX" secondItem="GzS-Hr-y6P" secondAttribute="centerX" id="oJH-DH-fOV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="batteryLevelLabel" destination="o7W-KX-5hh" id="JhD-zw-hty"/>
+                        <outlet property="batteryStateLabel" destination="56Q-Jd-ajz" id="4I2-WI-F75"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="178" y="497"/>
+        </scene>
+    </scenes>
+</document>
