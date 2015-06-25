@@ -13,6 +13,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var batteryLevelLabel: UILabel?
     @IBOutlet weak var batteryStateLabel: UILabel?
 
+    lazy var numberFormatter: NSNumberFormatter = {
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = NSNumberFormatterStyle.PercentStyle
+        numberFormatter.maximumFractionDigits = 1
+        return numberFormatter
+    }()
+
     deinit {
         unregisterFromBatteryNotifications()
     }
@@ -51,23 +58,9 @@ class ViewController: UIViewController {
         UIDevice.currentDevice().batteryMonitoringEnabled = false
     }
 
-    func numberPercentFormatter() -> NSNumberFormatter {
-        struct Static {
-            static var onceToken: dispatch_once_t = 0
-            static var numberFormatter: NSNumberFormatter!
-        }
-        dispatch_once(&Static.onceToken) {
-            let numberFormatter = NSNumberFormatter()
-            numberFormatter.numberStyle = NSNumberFormatterStyle.PercentStyle
-            numberFormatter.maximumFractionDigits = 1
-            Static.numberFormatter = numberFormatter;
-        }
-        return Static.numberFormatter;
-    }
-
     func updateBatteryLevel() {
         let batteryLevel = UIDevice.currentDevice().batteryLevel
-        let batteryLevelString = batteryLevel < 0.0 ? "Unknown" : numberPercentFormatter().stringFromNumber(NSNumber(float: batteryLevel))
+        let batteryLevelString = batteryLevel < 0.0 ? "Unknown" : numberFormatter.stringFromNumber(NSNumber(float: batteryLevel))
         if let label = batteryLevelLabel {
             label.text = batteryLevelString
         }
