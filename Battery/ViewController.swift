@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var batteryLevelLabel: UILabel?
     @IBOutlet weak var batteryStateLabel: UILabel?
 
-    lazy var numberFormatter: NSNumberFormatter = {
+    static let numberFormatter: NSNumberFormatter = {
         let numberFormatter = NSNumberFormatter()
         numberFormatter.numberStyle = NSNumberFormatterStyle.PercentStyle
         numberFormatter.maximumFractionDigits = 1
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
 
     func updateBatteryLevel() {
         let batteryLevel = UIDevice.currentDevice().batteryLevel
-        let batteryLevelString = batteryLevel < 0.0 ? "Unknown" : numberFormatter.stringFromNumber(NSNumber(float: batteryLevel))
+        let batteryLevelString = batteryLevel < 0.0 ? "Unknown" : ViewController.numberFormatter.stringFromNumber(NSNumber(float: batteryLevel))
         if let label = batteryLevelLabel {
             label.text = batteryLevelString
         }
